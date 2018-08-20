@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -12,7 +12,10 @@ export class CockpitComponent implements OnInit {
   @Output('bpCreated') blueprintCreated = new EventEmitter<{ serverName: string, serverContent: string }>();
 
   //newServerName = '';
-  newServerContent = '';
+  // newServerContent = '';
+
+  //Any reference of html elements in the dom can be accessed from the .ts file with this decorator.
+  @ViewChild('newServerContent') serverContentInput: ElementRef
 
   constructor() { }
 
@@ -25,7 +28,7 @@ export class CockpitComponent implements OnInit {
     this.serverCreated.emit(
       {
         serverName: serverNameInput.value,
-        serverContent: this.newServerContent
+        serverContent: this.serverContentInput.nativeElement.value // And its value can be accessed as this.
       });
   }
 
@@ -34,7 +37,7 @@ export class CockpitComponent implements OnInit {
     this.blueprintCreated.emit(
       {
         serverName: serverNameInput.value,
-        serverContent: this.newServerContent
+        serverContent: this.serverContentInput.nativeElement.value
       });
   }
 }
