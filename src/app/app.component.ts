@@ -9,7 +9,7 @@ export class AppComponent {
   serverElements = [{ type: 'server', name: 'Test Server', content: 'Just a test!' }];
 
   // When serverCreated event is triggered in the app-cockpit component, push to serverElements array the data passed in.
-  onServerAdded(serverData: { serverName: string, serverContent: string }){
+  onServerAdded(serverData: { serverName: string, serverContent: string }) {
     this.serverElements.push({
       type: 'server',
       name: serverData.serverName,
@@ -18,12 +18,21 @@ export class AppComponent {
   }
 
   // When blueprintCreated event is triggered in the app-cockpit component, push to serverElements array the data passed in.
-  onBlueprintAdded(serverData: { serverName: string, serverContent: string }){
+  onBlueprintAdded(serverData: { serverName: string, serverContent: string }) {
     this.serverElements.push({
       type: 'blueprint',
       name: serverData.serverName,
       content: serverData.serverContent
     });
+  }
+
+  onChangeFirst() {
+    this.serverElements[0].name = 'Changed!';
+  }
+
+
+  onDestroyFirst() {
+    this.serverElements.splice(0, 1);
   }
 
 }
