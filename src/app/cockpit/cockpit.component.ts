@@ -15,7 +15,7 @@ export class CockpitComponent implements OnInit {
   // newServerContent = '';
 
   //Any reference of html elements in the dom can be accessed from the .ts file with this decorator.
-  @ViewChild('newServerContent') serverContentInput: ElementRef
+  @ViewChild('serverContentInput') serverContentInput: ElementRef
 
   constructor() { }
 
