@@ -1,6 +1,9 @@
 <div class="container">
 
   <!-- Subscribe to serverCreated and blueprintCreated events to do something when events are triggered. -->
+  <p>
+    Subscribe to serverCreated and blueprintCreated events to do something when events are triggered.
+  </p>
   <app-cockpit 
     (srvCreated)="onServerAdded($event)"
     (bpCreated)="onBlueprintAdded($event)">
